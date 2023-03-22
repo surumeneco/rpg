@@ -17,7 +17,8 @@ phina.main(function ()
       //fps設定
       fps: 60,
 
-      startLabel: "タイトル",
+      // startLabel: "タイトル",
+      startLabel: "ホーム",
       scenes:
         [
           {
