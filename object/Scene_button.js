@@ -97,8 +97,7 @@ phina.define("Scene_buttons_window",
           width: SCREEN_W,
           height: window_height,
           fill: "transparent",
-          stroke: White,
-          strokeWidth: 10, cornerRadius: 0
+          strokeWidth: 0, cornerRadius: 0
         }
       );
       this.setPosition(CENTER_X, y);
@@ -152,7 +151,7 @@ phina.define("Scene_buttons_window",
         this.スクロール距離 = 0;
       });
 
-      this.on("pointmove", function (e)
+      this.on("pointstay", function (e)
       {
         this.スクロール距離 = e.pointer.y - this.スクロール開始位置;
 
@@ -170,7 +169,7 @@ phina.define("Scene_buttons_window",
       this.on("pointend", function (e)
       {
         this.押下中 = false;
-        let スクロール時間 = time - this.スクロール開始時間;
+        let スクロール時間 = time - this.スクロール開始時間 + 1;
         this.慣性 = this.スクロール距離 / (スクロール時間 / 10);
         this.始端位置 += this.スクロール距離;
         this.スクロール距離 = 0;
@@ -253,6 +252,21 @@ phina.define("Scene_buttons_window",
         }
       }
       this.set_positions();
+    },
+    /*---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---*/
+
+
+
+    /*---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
+      
+        ウィンドウ範囲外を非表示
+    
+      ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---*/
+    clip: function (c)
+    {
+      c.beginPath();
+      c.rect(-this.width / 2, -this.height / 2, this.width, this.height);
+      c.closePath();
     }
     /*---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---*/
   }

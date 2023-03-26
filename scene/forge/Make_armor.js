@@ -20,6 +20,17 @@ phina.define("Make_armor_scene",
 
       //背景色
       this.backgroundColor = Black;
+
+      let シーン移行ウィンドウ_余白 = 300;
+      let シーン移行ウィンドウ_h = SCREEN_H - シーン移行ウィンドウ_余白;
+      let シーン移行ウィンドウ_y = シーン移行ウィンドウ_余白 + シーン移行ウィンドウ_h / 2;
+      let 移行シーン先 =
+        [
+          ["鍛冶屋へ戻る", "鍛冶屋"],
+        ];
+      this.シーン移行ボタン = Scene_buttons_window(移行シーン先, シーン移行ウィンドウ_y, シーン移行ウィンドウ_h);
+      this.シーン移行ボタン.addChildTo(this);
+      this.シーン移行ボタン.set_positions();
     },
     /*---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---*/
 

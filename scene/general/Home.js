@@ -21,10 +21,9 @@ phina.define("Home_scene",
       //背景色
       this.backgroundColor = Black;
 
-      let label = Label(SCREEN_H).addChildTo(this);
-      label.fill = White;
-      label.setPosition(50, 50);
-
+      let シーン移行ウィンドウ_余白 = 300;
+      let シーン移行ウィンドウ_h = SCREEN_H - シーン移行ウィンドウ_余白;
+      let シーン移行ウィンドウ_y = シーン移行ウィンドウ_余白 + シーン移行ウィンドウ_h / 2;
       let 移行シーン先 =
         [
           ["クエスト", "クエスト選択"],
@@ -34,17 +33,8 @@ phina.define("Home_scene",
           ["鍛冶屋", "鍛冶屋"],
           ["セーブ", ""],
           ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
-          ["タイトルに戻る", "タイトル"],
         ];
-      this.シーン移行ボタン = Scene_buttons_window(移行シーン先, 300, 500);
+      this.シーン移行ボタン = Scene_buttons_window(移行シーン先, シーン移行ウィンドウ_y, シーン移行ウィンドウ_h);
       this.シーン移行ボタン.addChildTo(this);
       this.シーン移行ボタン.set_positions();
     },
