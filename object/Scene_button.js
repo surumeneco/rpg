@@ -118,7 +118,7 @@ phina.define("Scene_buttons_window",
       this.上限 = - window_height / 2 + this.ボタン高さ / 2 + this.上下余白;
       this.下限 = window_height / 2 - this.ボタン高さ / 2 - this.上下余白;
       this.始端位置 = this.上限;
-      this.終端位置 = this.上限;
+      this.終端位置 = this.始端位置;
 
 
       this.ボタン = new Array();
